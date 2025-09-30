@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clavio | Premium Restaurant & Lounge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #d4af37;
+            --secondary: #b91c1c;
+            --dark: #0f172a;
+            --light: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            scroll-behavior: smooth;
+        }
+        
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.7;
+        }
+        
+        .menu-item {
+            transition: all 0.3s ease;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .gallery-item {
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black bg-opacity-90 backdrop-blur-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-primary">
+                    <a href="#" class="flex items-center">
+                        <span class="text-3xl font-serif text-amber-400">CLAVIO</span>
+                    </a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-amber-400 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-10">
+                    <a href="#home" class="nav-link text-white hover:text-amber-400">Home</a>
+                    <a href="#menu" class="nav-link text-white hover:text-amber-400">Menu</a>
+                    <a href="#about" class="nav-link text-white hover:text-amber-400">About</a>
+                    <a href="#gallery" class="nav-link text-white hover:text-amber-400">Gallery</a>
+                    <a href="#events" class="nav-link text-white hover:text-amber-400">Events</a>
+                    <a href="#reservations" class="nav-link text-white hover:text-amber-400">Reservations</a>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden py-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="#home" class="nav-link text-white hover:text-amber-400">Home</a>
+                    <a href="#menu" class="nav-link text-white hover:text-amber-400">Menu</a>
+                    <a href="#about" class="nav-link text-white hover:text-amber-400">About</a>
+                    <a href="#gallery" class="nav-link text-white hover:text-amber-400">Gallery</a>
+                    <a href="#events" class="nav-link text-white hover:text-amber-400">Events</a>
+                    <a href="#reservations" class="nav-link text-white hover:text-amber-400">Reservations</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+    <img src="c:\Users\Wilfried.cfa\Pictures\WhatsApp Image 2025-09-15 à 15.05.25_d34e6ddd.jpg" alt="Clavio Hero" class="absolute top-0 left-0 w-full h-full object-cover z-0">
+    <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+        
+        <div class="container mx-auto px-6 z-10 text-center mt-32">
+    <p class="text-xl md:text-3xl font-serif italic mb-10 text-white">Where Taste Meets Atmosphere</p>
+    <a href="#reservations" class="inline-block bg-amber-400 hover:bg-amber-500 text-black font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+        Reserve a Table
+    </a>
+</div>
+            
+            <div class="absolute bottom-10 left-0 right-0 flex justify-center">
+                <a href="#menu" class="text-white animate-bounce">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-20 bg-gradient-to-b from-slate-900 to-black">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold mb-4 text-amber-400">Our Menu</h2>
+                <div class="w-20 h-1 bg-amber-400 mx-auto mb-6"></div>
+                <p class="text-lg max-w-2xl mx-auto">Experience our exquisite selection of gourmet dishes, signature cocktails, premium spirits, and aromatic chicha.</p>
+            </div>
+            
+            <!-- Menu Filter -->
+            <div class="flex justify-center mb-12">
+                <div class="inline-flex rounded-md shadow-sm" role="group">
+                    <button type="button" class="menu-filter px-4 py-2 text-sm font-medium rounded-l-lg border border-amber-400 hover:bg-amber-400 hover:text-black transition" data-category="all">
+                        All
+                    </button>
+                    <button type="button" class="menu-filter px-4 py-2 text-sm font-medium border-t border-b border-amber-400 hover:bg-amber-400 hover:text-black transition" data-category="food">
+                        Food
+                    </button>
+                    <button type="button" class="menu-filter px-4 py-2 text-sm font-medium border-t border-b border-amber-400 hover:bg-amber-400 hover:text-black transition" data-category="cocktails">
+                        Cocktails
+                    </button>
+                    <button type="button" class="menu-filter px-4 py-2 text-sm font-medium border-t border-b border-amber-400 hover:bg-amber-400 hover:text-black transition" data-category="alcohol">
+                        Alcohol
+                    </button>
+                    <button type="button" class="menu-filter px-4 py-2 text-sm font-medium rounded-r-lg border border-amber-400 hover:bg-amber-400 hover:text-black transition" data-category="chicha">
+                        Chicha
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Menu Items -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Food Items -->
+                <div class="menu-item food bg-slate-800 rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Steak" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-amber-400 text-black font-bold px-3 py-1 rounded-full text-sm">
+                            $32
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-serif font-bold mb-2">Wagyu Ribeye</h3>
+                        <p class="text-slate-300 mb-4">Premium Japanese A5 Wagyu with truffle butter and seasonal vegetables.</p>
+                        <div class="flex items-center text-amber-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="ml-2 text-white">4.7</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cocktail Items -->
+                <div class="menu-item cocktails bg-slate-800 rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551751299-1b51cab2694c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Cocktail" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-amber-400 text-black font-bold px-3 py-1 rounded-full text-sm">
+                            $18
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-serif font-bold mb-2">Midnight in Paris</h3>
+                        <p class="text-slate-300 mb-4">Gin, elderflower liqueur, blackberry, lemon juice, and edible gold flakes.</p>
+                        <div class="flex items-center text-amber-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="ml-2 text-white">4.9</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Alcohol Items -->
+                <div class="menu-item alcohol bg-slate-800 rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1597822738124-151fb72dcb79?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Whiskey" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-amber-400 text-black font-bold px-3 py-1 rounded-full text-sm">
+                            $65
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-serif font-bold mb-2">Macallan 18</h3>
+                        <p class="text-slate-300 mb-4">Single malt Scotch whisky aged for 18 years in sherry oak casks.</p>
+                        <div class="flex items-center text-amber-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="ml-2 text-white">5.0</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Chicha Items -->
+                <div class="menu-item chicha bg-slate-800 rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://i.pinimg.com/736x/09/c8/8d/09c88dcb68ba0c4aba15a86f648b3cef.jpg" alt="Hookah" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-amber-400 text-black font-bold px-3 py-1 rounded-full text-sm">
+                            $25
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-serif font-bold mb-2">Royal Chicha</h3>
+                        <p class="text-slate-300 mb-4">Premium tobacco blend with mint, apple, and rose flavors.</p>
+                        <div class="flex items-center text-amber-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="ml-2 text-white">4.8</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- More Items -->
+                <div class="menu-item food bg-slate-800 rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1371&q=80" alt="Seafood" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-amber-400 text-black font-bold px-3 py-1 rounded-full text-sm">
+                            $28
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-serif font-bold mb-2">Truffle Lobster Pasta</h3>
+                        <p class="text-slate-300 mb-4">Fresh lobster with handmade pasta in a creamy truffle sauce.</p>
+                        <div class="flex items-center text-amber-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="ml-2 text-white">4.9</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item cocktails bg-slate-800 rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Cocktail" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-amber-400 text-black font-bold px-3 py-1 rounded-full text-sm">
+                            $16
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-serif font-bold mb-2">Smoky Negroni</h3>
+                        <p class="text-slate-300 mb-4">Gin, Campari, sweet vermouth with a smoked rosemary infusion.</p>
+                        <div class="flex items-center text-amber-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="ml-2 text-white">4.6</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block border-2 border-amber-400 text-amber-400 hover:bg-amber-400 hover:text-black font-bold py-3 px-8 rounded-full transition duration-300">
+                    View Full Menu
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 parallax" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')">
+        <div class="bg-black bg-opacity-70 py-20">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-center">
+                    <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                        <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6 text-amber-400">Our Story</h2>
+                        <div class="w-20 h-1 bg-amber-400 mb-6"></div>
+                        <p class="text-lg mb-6">Founded in 2015, Clavio emerged from a simple vision: to create a space where culinary excellence meets vibrant nightlife, where every visit becomes a memorable experience.</p>
+                        <p class="text-lg mb-6">Our name, Clavio, derives from the Latin word for "key" - representing our commitment to unlocking exceptional dining and entertainment experiences for our guests.</p>
+                        <p class="text-lg mb-8">Today, we stand as a premier destination for those who appreciate fine dining, crafted cocktails, and an atmosphere that pulses with energy and sophistication.</p>
+                        <div class="flex flex-wrap gap-4">
+                            <div class="bg-amber-400 bg-opacity-20 border border-amber-400 px-4 py-2 rounded-lg">
+                                <h4 class="font-bold text-amber-400">100+</h4>
+                                <p class="text-sm">Premium Spirits</p>
+                            </div>
+                            <div class="bg-amber-400 bg-opacity-20 border border-amber-400 px-4 py-2 rounded-lg">
+                                <h4 class="font-bold text-amber-400">50+</h4>
+                                <p class="text-sm">Signature Cocktails</p>
+                            </div>
+                            <div class="bg-amber-400 bg-opacity-20 border border-amber-400 px-4 py-2 rounded-lg">
+                                <h4 class="font-bold text-amber-400">25+</h4>
+                                <p class="text-sm">Gourmet Dishes</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2 relative">
+                        <div class="relative h-96 w-full rounded-lg overflow-hidden shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Restaurant Interior" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                            <div class="absolute bottom-0 left-0 p-6">
+                                <h3 class="text-2xl font-serif font-bold text-white">Experience Clavio</h3>
+                                <p class="text-white">Where every detail matters</p>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-6 -right-6 bg-amber-400 p-4 rounded-lg shadow-lg hidden lg:block">
+                            <div class="text-black text-center">
+                                <p class="text-sm">Since</p>
+                                <p class="text-3xl font-bold">2015</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold mb-4 text-amber-400">Gallery</h2>
+                <div class="w-20 h-1 bg-amber-400 mx-auto mb-6"></div>
+                <p class="text-lg max-w-2xl mx-auto">A glimpse into the Clavio experience - our ambiance, cuisine, and vibrant atmosphere.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="gallery-item overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Restaurant Interior" class="w-full h-64 object-cover transition duration-500 hover:scale-110">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Cocktails" class="w-full h-64 object-cover transition duration-500 hover:scale-110">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Food Presentation" class="w-full h-64 object-cover transition duration-500 hover:scale-110">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1537047902294-62a40c20a6ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Nightlife" class="w-full h-64 object-cover transition duration-500 hover:scale-110">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Bar" class="w-full h-64 object-cover transition duration-500 hover:scale-110">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://tse4.mm.bing.net/th/id/OIP.FwGW8HAWYz8E04c1Yg_VNgHaE8?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Hookah" class="w-full h-64 object-cover transition duration-500 hover:scale-110">
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-flex items-center border-2 border-amber-400 text-amber-400 hover:bg-amber-400 hover:text-black font-bold py-3 px-8 rounded-full transition duration-300">
+                    <i class="fab fa-instagram mr-2"></i> Follow Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="py-20 bg-gradient-to-b from-black to-slate-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold mb-4 text-amber-400">Events & Offers</h2>
+                <div class="w-20 h-1 bg-amber-400 mx-auto mb-6"></div>
+                <p class="text-lg max-w-2xl mx-auto">Join us for exclusive events, live music, and special promotions throughout the week.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="DJ Night" class="w-full h-full object-cover">
+                        <div class="absolute top-0 left-0 bg-amber-400 text-black font-bold px-3 py-1 rounded-br-lg">
+                            <span class="block text-sm">Every</span>
+                            <span class="block text-xl">Friday</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-serif font-bold mb-2">Neon Nights</h3>
+                        <p class="text-slate-300 mb-4">Weekly DJ sets with our resident and guest DJs spinning house and techno.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-amber-400">9 PM - 2 AM</span>
+                            <a href="#reservations" class="text-white hover:text-amber-400 transition">Reserve</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1566737236500-c8ac43014a67?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Happy Hour" class="w-full h-full object-cover">
+                        <div class="absolute top-0 left-0 bg-amber-400 text-black font-bold px-3 py-1 rounded-br-lg">
+                            <span class="block text-sm">Mon-Thu</span>
+                            <span class="block text-xl">5-7 PM</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-serif font-bold mb-2">Golden Hour</h3>
+                        <p class="text-slate-300 mb-4">50% off all cocktails and appetizers during our weekday happy hour.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-amber-400">5 PM - 7 PM</span>
+                            <a href="#reservations" class="text-white hover:text-amber-400 transition">Reserve</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1571115764595-644a1f56a55c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Wine Tasting" class="w-full h-full object-cover">
+                        <div class="absolute top-0 left-0 bg-amber-400 text-black font-bold px-3 py-1 rounded-br-lg">
+                            <span class="block text-sm">Monthly</span>
+                            <span class="block text-xl">Event</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-serif font-bold mb-2">Vintage Nights</h3>
+                        <p class="text-slate-300 mb-4">Exclusive wine tasting events featuring rare vintages from around the world.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-amber-400">7 PM - 10 PM</span>
+                            <a href="#reservations" class="text-white hover:text-amber-400 transition">Reserve</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-gradient-to-r from-amber-400 to-amber-600 rounded-lg p-8 text-center">
+                <h3 class="text-2xl font-serif font-bold mb-4 text-black">Join Our VIP List</h3>
+                <p class="mb-6 text-black">Get exclusive access to special events, promotions, and early reservations.</p>
+                <form class="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
+                    <input type="email" placeholder="Your Email" class="flex-grow px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-black">
+                    <button type="submit" class="bg-black text-amber-400 hover:bg-slate-900 font-bold px-6 py-3 rounded-lg transition">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservations Section -->
+    <section id="reservations" class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6 text-amber-400">Reservations</h2>
+                    <div class="w-20 h-1 bg-amber-400 mb-6"></div>
+                    <p class="text-lg mb-8">Secure your table at Clavio for an unforgettable dining and lounge experience. Reservations are recommended, especially for weekends and special events.</p>
+                    
+                    <div class="mb-8">
+                        <h3 class="text-xl font-serif font-bold mb-4 text-amber-400">Opening Hours</h3>
+                        <ul class="space-y-2">
+                            <li class="flex justify-between border-b border-slate-700 pb-2">
+                                <span>Monday - Thursday</span>
+                                <span>5 PM - 12 AM</span>
+                            </li>
+                            <li class="flex justify-between border-b border-slate-700 pb-2">
+                                <span>Friday - Saturday</span>
+                                <span>5 PM - 2 AM</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Sunday</span>
+                                <span>5 PM - 11 PM</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-serif font-bold mb-4 text-amber-400">Contact</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-amber-400 mt-1 mr-4"></i>
+                                <p>DOUALA BERCY-AKWA<br>RUE 123</p>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-phone text-amber-400 mr-4"></i>
+                                <p>+237 940 692 261</p>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope text-amber-400 mr-4"></i>
+                                <p>latif@icloud.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-slate-800 rounded-lg p-8 shadow-xl">
+                        <h3 class="text-2xl font-serif font-bold mb-6 text-center text-amber-400">Book Your Table</h3>
+                        <form>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label for="name" class="block mb-2">Full Name</label>
+                                    <input type="text" id="name" class="w-full px-4 py-3 bg-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400">
+                                </div>
+                                <div>
+                                    <label for="email" class="block mb-2">Email</label>
+                                    <input type="email" id="email" class="w-full px-4 py-3 bg-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400">
+                                </div>
+                                <div>
+                                    <label for="phone" class="block mb-2">Phone</label>
+                                    <input type="tel" id="phone" class="w-full px-4 py-3 bg-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400">
+                                </div>
+                                <div>
+                                    <label for="guests" class="block mb-2">Number of Guests</label>
+                                    <select id="guests" class="w-full px-4 py-3 bg-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400">
+                                        <option>1 person</option>
+                                        <option>2 people</option>
+                                        <option>3 people</option>
+                                        <option>4 people</option>
+                                        <option>5 people</option>
+                                        <option>6+ people</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="date" class="block mb-2">Date</label>
+                                    <input type="date" id="date" class="w-full px-4 py-3 bg-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400">
+                                </div>
+                                <div>
+                                    <label for="time" class="block mb-2">Time</label>
+                                    <select id="time" class="w-full px-4 py-3 bg-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400">
+                                        <option>6:00 PM</option>
+                                        <option>6:30 PM</option>
+                                        <option>7:00 PM</option>
+                                        <option>7:30 PM</option>
+                                        <option>8:00 PM</option>
+                                        <option>8:30 PM</option>
+                                        <option>9:00 PM</option>
+                                        <option>9:30 PM</option>
+                                        <option>10:00 PM</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-6">
+                                <label for="special-requests" class="block mb-2">Special Requests</label>
+                                <textarea id="special-requests" rows="3" class="w-full px-4 py-3 bg-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-amber-400 hover:bg-amber-500 text-black font-bold py-3 px-6 rounded-lg transition duration-300">
+                                Confirm Reservation
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <div class="h-96 w-full">
+       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.852033283062!2d9.69465200935047!3d4.050589295906146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1061130064e6f941%3A0x99c2f5ad2ed128cd!2sSanta%20Lucia%20Akwa%20Bercy!5e0!3m2!1sfr!2scm!4v1757674061135!5m2!1sfr!2scm" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <div>
+                    <h3 class="text-xl font-serif font-bold mb-6 text-amber-400">Clavio</h3>
+                    <p class="mb-6">Where taste meets atmosphere. A premium dining and lounge experience in the heart of the city.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-amber-400 transition"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="#" class="text-white hover:text-amber-400 transition"><i class="fab fa-facebook text-xl"></i></a>
+                        <a href="#" class="text-white hover:text-amber-400 transition"><i class="fab fa-tiktok text-xl"></i></a>
+                        <a href="#" class="text-white hover:text-amber-400 transition"><i class="fab fa-twitter text-xl"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-serif font-bold mb-6 text-amber-400">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="hover:text-amber-400 transition">Home</a></li>
+                        <li><a href="#menu" class="hover:text-amber-400 transition">Menu</a></li>
+                        <li><a href="#about" class="hover:text-amber-400 transition">About Us</a></li>
+                        <li><a href="#gallery" class="hover:text-amber-400 transition">Gallery</a></li>
+                        <li><a href="#events" class="hover:text-amber-400 transition">Events</a></li>
+                        <li><a href="#reservations" class="hover:text-amber-400 transition">Reservations</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-serif font-bold mb-6 text-amber-400">Opening Hours</h3>
+                    <ul class="space-y-2">
+                        <li class="flex justify-between">
+                            <span>Mon - Thu</span>
+                            <span>6 PM - 12 AM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Fri - Sat</span>
+                            <span>6 PM - 2 AM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Sunday</span>
+                            <span>6 PM - 2 AM</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-serif font-bold mb-6 text-amber-400">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-amber-400 mt-1 mr-3"></i>
+                            <span>DOUALA-AKWA DOUALA BERCY, RUE 12345</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone text-amber-400 mr-3"></i>
+                            <span>237 940 692 261</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-amber-400 mr-3"></i>
+                            <span>Latif@icloud.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-700 mt-12 pt-8 text-center">
+                <p>&copy; 2023 Clavio. All rights reserved. | Designed with <i class="fas fa-heart text-red-500"></i> for premium experiences</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        
+        // Menu filter functionality
+        const menuFilters = document.querySelectorAll('.menu-filter');
+        const menuItems = document.querySelectorAll('.menu-item');
+        
+        menuFilters.forEach(filter => {
+            filter.addEventListener('click', function() {
+                // Remove active class from all filters
+                menuFilters.forEach(f => f.classList.remove('bg-amber-400', 'text-black'));
+                
+                // Add active class to clicked filter
+                this.classList.add('bg-amber-400', 'text-black');
+                
+                const category = this.dataset.category;
+                
+                // Show all items if 'all' is selected
+                if (category === 'all') {
+                    menuItems.forEach(item => {
+                        item.style.display = 'block';
+                    });
+                    return;
+                }
+                
+                // Filter items based on category
+                menuItems.forEach(item => {
+                    if (item.classList.contains(category)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!document.getElementById('mobile-menu').classList.contains('hidden')) {
+                        document.getElementById('mobile-menu').classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Add animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.menu-item, .gallery-item');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        
+        // Set initial state for animated elements
+        document.querySelectorAll('.menu-item, .gallery-item').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'all 0.6s ease';
+        });
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
